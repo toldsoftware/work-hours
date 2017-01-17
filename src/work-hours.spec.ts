@@ -1,8 +1,11 @@
-import { processWorkHours } from './work-hours';
+import { processWorkHours, Report } from './work-hours';
 
 describe('processWorkHours with simple document', () => {
 
-    let doc = `
+    let result: Report = null;
+
+    beforeAll(() => {
+        let doc = `
 # 2017-01-01
 
 ## 9:00-10:00
@@ -14,7 +17,8 @@ describe('processWorkHours with simple document', () => {
 - Task 2
 `;
 
-        let result = processWorkHours(doc);
+        result = processWorkHours(doc);
+    });
 
     it('should have correct total hours', () => {
         expect(result.totalHours).toBe(2);
