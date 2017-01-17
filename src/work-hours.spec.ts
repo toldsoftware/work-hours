@@ -18,15 +18,21 @@ describe('processWorkHours with simple document', () => {
 `;
 
         result = processWorkHours(doc);
-        console.log('beforeAll');
-        console.log(result);
-        console.log(result.totalHours);
-        console.log(result.days);
+        console.log('START beforeAll');
+        console.log('result', result);
+        console.log('result.totalHours', result.totalHours);
+        result.days.forEach(x => console.log('x.totalHours', x.totalHours));
+        result.days.forEach(x => console.log('x.dateText', x.dateText));
+        result.days.forEach(x => x.periods.forEach(p => console.log('p.totalHours', p.totalHours)));
+        result.days.forEach(x => x.periods.forEach(p => console.log('p.timeStartText', p.timeStartText)));
+        result.days.forEach(x => x.periods.forEach(p => console.log('p.timeStart', p.timeStart)));
+        result.days.forEach(x => x.periods.forEach(p => console.log('p.timeEndText', p.timeEndText)));
+        result.days.forEach(x => x.periods.forEach(p => console.log('p.timeEnd', p.timeEnd)));
     });
 
     it('should have correct total hours', () => {
 
-        console.log('it');
+        console.log('START it');
         console.log(result);
 
         expect(result.totalHours).toBe(2);
