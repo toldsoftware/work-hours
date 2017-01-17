@@ -5,7 +5,7 @@
         "node_modules": true,
         "typings": true,
         ".gitignore": true,
-        ".travis.yml": true,
+        // ".travis.yml": true,
         "index.ts": true,
         "karma.conf.js": true,
         "LICENSE": true,
