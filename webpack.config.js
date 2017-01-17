@@ -26,7 +26,7 @@ module.exports = {
             host:   'localhost',
                   port:  3000,
                   server:  { 
-                baseDir:  ['./../Targets/html/'] 
+                baseDir:  ['./'] 
             }    
         })
         // // Uglify

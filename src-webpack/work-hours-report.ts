@@ -1,4 +1,4 @@
-import { processWorkHours } from './../src/work-hours';
+import { processWorkHours, Report } from './../src/work-hours';
 
 export function setup() {
     let host = document.createElement('div');
@@ -15,13 +15,52 @@ export function setup() {
         let text = input.value;
 
         let report = processWorkHours(text);
-        output.innerHTML = JSON.stringify(report);
+        output.innerHTML = generateReportHtml(report);
     });
 
 
     host.innerHTML = '';
     host.appendChild(input);
     host.appendChild(output);
+}
+
+export function generateReportHtml(report: Report): string {
+
+    let summary = `</div>
+Total Hours: ${report.totalHours}
+</div>`;
+
+    let days = '';
+
+    for (let d of report.days) {
+
+        let periods = '';
+        for (let p of d.periods) {
+            let tasks = p.tasks.map(t => `<div>${t}</div>`).join('\n');
+
+            periods += `<div>
+<div>
+## ${p.timeStartText}-${p.timeEndText} (${p.totalHours})
+</div>
+${tasks}
+</div>`;
+        }
+
+        days += `<div>
+<div>
+# ${d.dateText} (${d.totalHours})
+</div>
+${periods}
+</div>`;
+    }
+
+
+
+    return `<div>
+${summary}
+${days}
+</div>`;
+
 }
 
 setup();
