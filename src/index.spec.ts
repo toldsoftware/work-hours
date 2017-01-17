@@ -1,7 +1,7 @@
-import { nothing } from "./index";
+import { nothing } from './index';
 
-describe("nothing", () => {
-    it("should be 0", () => {
+describe('nothing', () => {
+    it('should be 0', () => {
         expect(nothing).toBe(0);
     });
 });
