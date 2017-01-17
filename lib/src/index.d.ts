@@ -1,1 +1,1 @@
-export declare let nothing: number;
+export * from './work-hours';
