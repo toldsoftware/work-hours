@@ -72,8 +72,8 @@
 	        var periods = '';
 	        for (var _b = 0, _c = d.periods; _b < _c.length; _b++) {
 	            var p = _c[_b];
-	            var tasks = p.tasks.map(function (t) { return "<div>" + t + "</div>"; }).join('\n');
-	            periods += "<div>\n<div>\n## " + p.timeStartText + "-" + p.timeEndText + " (" + p.totalHours + ")\n</div>\n" + tasks + "\n</div>";
+	            var tasks = p.tasks.map(function (t) { return "<div  style='margin-left:40px'>" + t + "</div>"; }).join('\n');
+	            periods += "<div>\n<div style='margin-left:20px'>\n## " + p.timeStartText + "-" + p.timeEndText + " (" + p.totalHours + ")\n</div>\n" + tasks + "\n</div>";
 	        }
 	        days += "<div>\n<div>\n# " + d.dateText + " (" + d.totalHours + ")\n</div>\n" + periods + "\n</div>";
 	    }

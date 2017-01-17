@@ -36,10 +36,10 @@ Total Hours: ${report.totalHours}
 
         let periods = '';
         for (let p of d.periods) {
-            let tasks = p.tasks.map(t => `<div>${t}</div>`).join('\n');
+            let tasks = p.tasks.map(t => `<div  style='margin-left:40px'>${t}</div>`).join('\n');
 
             periods += `<div>
-<div>
+<div style='margin-left:20px'>
 ## ${p.timeStartText}-${p.timeEndText} (${p.totalHours})
 </div>
 ${tasks}
